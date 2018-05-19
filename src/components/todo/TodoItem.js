@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 export const TodoItem = (props) => {
     return (
-            <li>
-                <input type="checkbox" defaultChecked={props.isComplete} /> {props.name}
-            </li>
+        <li>
+            <input type="checkbox" defaultChecked={props.isComplete} /> {props.name}
+        </li>
     )
 } 
 
