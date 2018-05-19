@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { TodoForm } from './components/todo/TodoForm'
 
 class App extends Component {
   constructor() {
@@ -13,15 +14,12 @@ class App extends Component {
       ],
       currentTodo: ''
     }
-    // bind
     this.handleInputChange = this.handleInputChange.bind(this)
   }
-  // create an event handler that can capture the input and assign the value to the currentTodo state
   handleInputChange(evt) {
     this.setState({
       currentTodo: evt.target.value
     })
-    // Now we need to reference it in our current constructor and bind it to 'this'
   }
   render() {
     return (
@@ -31,10 +29,9 @@ class App extends Component {
           <h2>React Todos</h2>
         </header>
         <div className="Todo-App">
-          <form>
-            {/* open react-dev tools and view the state currentTodo change */}
-            <input type="text" onChange={this.handleInputChange} value={this.state.currentTodo} />
-          </form>
+          <TodoForm handleInputChange={this.handleInputChange} 
+            currentTodo={this.state.currentTodo}
+          />
           <div>
             <ul>
               {this.state.todos.map(todo => 
