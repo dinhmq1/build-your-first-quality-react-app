@@ -5,3 +5,7 @@
 // passd into .bind (null, ...args). We can save that, and our test should pass. 
 // This should apply as many arguments as we want.
 export const partial = (fn, ...args) => fn.bind(null, ...args)
+
+const _pipe = (f, g) => (...args) => g(f(...args))
+
+export const pipe = (...fns) => fns.reduce(_pipe)
