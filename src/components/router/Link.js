@@ -6,11 +6,11 @@ export class Link extends Component {
         evt.preventDefault()
         //eslint-disable-next-line
         history.pushState(null, '', this.props.to)
-    }
+    };
     render() {
         return <a href="#" onClick={this.handleClick}>{this.props.children}</a>
     }
 }
 Link.propTypes ={
     to : PropTypes.string.isRequired
-}
+};
