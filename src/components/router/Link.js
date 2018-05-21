@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class Link extends Component {
   static contextTypes = {
@@ -11,7 +11,7 @@ export class Link extends Component {
     this.context.linkHandler(this.props.to);
   };
   render() {
-    const activeClass = this.context.route === this.props.to ? "active" : "";
+    const activeClass = this.context.route === this.props.to ? 'active' : '';
     return (
       <a href="#" className={activeClass} onClick={this.handleClick}>
         {this.props.children}
