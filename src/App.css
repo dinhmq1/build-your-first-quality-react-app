@@ -62,3 +62,6 @@ li:hover span.delete-item {
   color: red;
 }
 
+.Footer a {
+  padding: 0px 2px;
+}
