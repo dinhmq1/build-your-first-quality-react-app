@@ -9,7 +9,7 @@ export const TodoItem = props => {
     <li>
       <span className="delete-item">
         <a href="" onClick={handleRemove}>
-          X
+          <i className="material-icons md-36">close</i>
         </a>
       </span>
       <input type="checkbox" onChange={handleToggle} checked={props.isComplete} />
