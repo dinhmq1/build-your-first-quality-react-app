@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import logo from "./logo.svg";
 import "./App.css";
 import { TodoForm, TodoList, Footer } from "./components/todo";
@@ -8,7 +9,8 @@ import {
   findById,
   toggleTodo,
   updateTodo,
-  removeTodo
+  removeTodo,
+  filterTodos
 } from "./lib/todoHelpers";
 import { pipe, partial } from "./lib/utils";
 
@@ -21,6 +23,10 @@ class App extends Component {
     ],
     currentTodo: ""
   };
+
+  static contextTypes = {
+      route: PropTypes.string
+  }
 
   handleSubmit = evt => {
     evt.preventDefault();
@@ -75,6 +81,7 @@ class App extends Component {
     const submitHandler = this.state.currentTodo
       ? this.handleSubmit
       : this.handleEmptySubmit;
+    const displayTodos = filterTodos(this.state.todos, this.context.route)
     return (
       <div className="App">
         <header className="App-header">
@@ -93,7 +100,7 @@ class App extends Component {
           <TodoList
             handleToggle={this.handleToggle}
             handleRemove={this.handleRemove}
-            todos={this.state.todos}
+            todos={displayTodos}
           />
           <Footer />
         </div>

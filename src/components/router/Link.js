@@ -8,7 +8,6 @@ export class Link extends Component {
   };
   handleClick = evt => {
     evt.preventDefault();
-    //eslint-disable-next-line
     this.context.linkHandler(this.props.to);
   };
   render() {
